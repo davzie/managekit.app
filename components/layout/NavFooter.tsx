@@ -1,6 +1,7 @@
 'use client'
 
 import * as Avatar from '@radix-ui/react-avatar'
+import Link from 'next/link'
 
 export default function NavFooter() {
   return (
@@ -28,10 +29,10 @@ export default function NavFooter() {
               </a>
             </p>
             <p className='text-xs font-medium text-gray-500'>
-              <a className='hover:text-gray-200' href='/'>
+              <Link href='/settings' className='hover:text-gray-200'>
                 Settings
-              </a>{' '}
-              /{' '}
+              </Link>
+              /
               <a className='hover:text-gray-200' href='/'>
                 Logout
               </a>
