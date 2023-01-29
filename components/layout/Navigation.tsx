@@ -1,13 +1,13 @@
 'use client'
 
-import IconLink from './IconLink'
 import {
-  HomeIcon,
   FolderIcon,
+  HomeIcon,
   PencilSquareIcon,
-  UsersIcon,
   UserIcon,
+  UsersIcon,
 } from '@heroicons/react/24/outline'
+import IconLink from './IconLink'
 
 export default function Navigation() {
   return (
