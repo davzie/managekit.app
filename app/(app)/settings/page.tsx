@@ -1,11 +1,11 @@
-import PageTitle from '@/components/PageTitle'
-import Image from 'next/image'
+'use client'
+
+import { UserProfile } from '@clerk/nextjs'
 
 export default function Home() {
   return (
     <>
-      <PageTitle>Your Settings</PageTitle>
-      Testing
+      <UserProfile />
     </>
   )
 }
