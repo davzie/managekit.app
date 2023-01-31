@@ -1,8 +1,5 @@
-'use client'
-
 import * as Avatar from '@radix-ui/react-avatar'
 import Link from 'next/link'
-import type { User } from '@clerk/nextjs/dist/api'
 
 function getInitials(name: string): string {
   const matches = name.match(/\b(\w)/g)
@@ -36,18 +33,18 @@ export default function NavFooter({ username }: { username: string }) {
           </div>
           <div className='ml-3'>
             <p className='text-sm font-medium text-white'>
-              <a className='hover:text-gray-200' href='/'>
+              <Link className='hover:text-gray-200' href='/'>
                 {username}
-              </a>
+              </Link>
             </p>
             <p className='text-xs font-medium text-gray-500'>
               <Link href='/settings' className='hover:text-gray-200'>
                 Settings
               </Link>{' '}
               /{' '}
-              <a className='hover:text-gray-200' href='/'>
+              <Link className='hover:text-gray-200' href='/'>
                 Logout
-              </a>
+              </Link>
             </p>
           </div>
         </div>

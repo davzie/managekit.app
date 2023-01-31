@@ -1,6 +1,6 @@
 import PageTitle from '@/components/PageTitle'
 
-export default function Home() {
+export default function OverviewPage() {
   return (
     <>
       <PageTitle>Overview</PageTitle>

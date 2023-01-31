@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { ReactNode } from 'react'
 
 export default function IconLink({
@@ -10,7 +11,7 @@ export default function IconLink({
   icon: ReactNode
 }) {
   return (
-    <a
+    <Link
       href='/'
       className='group flex items-center rounded-md bg-white bg-opacity-0 px-3 py-2 font-medium text-gray-400 hover:bg-opacity-10 hover:text-white'
       aria-current='page'
@@ -27,6 +28,6 @@ export default function IconLink({
         {icon}
       </svg>
       <span className='truncate'>{name}</span>
-    </a>
+    </Link>
   )
 }
