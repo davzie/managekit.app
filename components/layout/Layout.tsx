@@ -1,9 +1,12 @@
 import NavFooter from '@/components/layout/NavFooter'
 import Navigation from '@/components/layout/Navigation'
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Head from 'next/head'
 import Image from 'next/image'
 
 export default function Layout(props: { children: React.ReactNode }) {
+  const session = useSession()
+  const supabase = useSupabaseClient()
   //   const user: User | null = await currentUser()
   //   const username: string =
   // (user?.firstName || '') + ' ' + (user?.lastName || '')

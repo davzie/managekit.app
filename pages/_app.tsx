@@ -1,11 +1,25 @@
 import Layout from '@/components/layout/Layout'
+import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { Session, SessionContextProvider } from '@supabase/auth-helpers-react'
 import type { AppProps } from 'next/app'
+import { useState } from 'react'
 import '../css/globals.css'
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+export default function MyApp({
+  Component,
+  pageProps,
+}: AppProps<{
+  initialSession: Session
+}>) {
+  const [supabaseClient] = useState(() => createBrowserSupabaseClient())
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <SessionContextProvider
+      supabaseClient={supabaseClient}
+      initialSession={pageProps.initialSession}
+    >
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </SessionContextProvider>
   )
 }

@@ -1,5 +1,5 @@
-import * as Avatar from '@radix-ui/react-avatar'
 import Link from 'next/link'
+import Avatar from './Avatar'
 
 function getInitials(name: string): string {
   const matches = name.match(/\b(\w)/g)
@@ -18,18 +18,7 @@ export default function NavFooter({ username }: { username: string }) {
       <div className='group block w-full flex-shrink-0'>
         <div className='flex items-center'>
           <div>
-            <Avatar.Root className='h-9 w-9 rounded-full'>
-              {false && (
-                <Avatar.Image
-                  className='inline-block h-9 w-9 rounded-full'
-                  src='https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&w=128&h=128&dpr=2&q=80'
-                  alt={username}
-                />
-              )}
-              <Avatar.Fallback className='rounded-full bg-mkpurple p-2 text-white'>
-                {userInitials}
-              </Avatar.Fallback>
-            </Avatar.Root>
+            <Avatar name={username} src='#' />
           </div>
           <div className='ml-3'>
             <p className='text-sm font-medium text-white'>

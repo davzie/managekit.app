@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model feedback {
+  id         BigInt    @id @default(autoincrement())
+  user_id    BigInt
+  type       String    @default("")
+  message    String    @default("")
+  created_at DateTime? @default(now()) @db.Timestamptz(6)
+  users      users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model notes {
+  id         BigInt   @id @default(autoincrement())
+  date       DateTime @db.Date
+  note       String?
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @default(now()) @db.Timestamptz(6)
+  user_id    BigInt?
+  users      users?   @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model users {
+  id                 BigInt     @id @default(autoincrement())
+  name               String     @default("")
+  email              String     @unique
+  email_verified_at  DateTime?  @db.Timestamptz(6)
+  login_token        String?
+  login_token_expiry DateTime?  @db.Timestamptz(6)
+  image              String?
+  created_at         DateTime?  @default(now()) @db.Timestamptz(6)
+  updated_at         DateTime?  @default(now()) @db.Timestamptz(6)
+  deleted_at         DateTime?  @db.Timestamptz(6)
+  feedback           feedback[]
+  notes              notes[]
+}
