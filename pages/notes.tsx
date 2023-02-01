@@ -1,3 +1,4 @@
+import Note from '@/components/Note'
 import PageTitle from '@/components/PageTitle'
 import prisma from '@/lib/prisma'
 import { notes } from '@prisma/client'
@@ -16,15 +17,17 @@ export async function getServerSideProps() {
   }
 }
 
-export default function OverviewPage({ notes }: { notes: notes[] }) {
+export default function NotesPage({ notes }: { notes: notes[] }) {
   return (
     <>
-      <PageTitle>Test</PageTitle>
+      <PageTitle>Daily Notes</PageTitle>
 
       {notes.map((note) => (
-        <div key={note.id}>
-          <p>{note.note}</p>
-        </div>
+        <Note
+          key={`note-` + note.id}
+          date={note.date}
+          note={note.note?.toString() || ''}
+        />
       ))}
     </>
   )

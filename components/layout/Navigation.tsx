@@ -15,11 +15,13 @@ export default function Navigation() {
       <div className='space-y-1'>
         <IconLink route='/' name='Overview' icon={<HomeIcon />} />
 
-        <IconLink route='/test' name='Test' icon={<HomeIcon />} />
-
         <IconLink route='/' name='My File' icon={<FolderIcon />} />
 
-        <IconLink route='/' name='Daily Notes' icon={<PencilSquareIcon />} />
+        <IconLink
+          route='/notes'
+          name='Daily Notes'
+          icon={<PencilSquareIcon />}
+        />
       </div>
 
       <div className='mt-8'>
