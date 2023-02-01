@@ -15,7 +15,7 @@ export default function Navigation() {
       <div className='space-y-1'>
         <IconLink route='/' name='Overview' icon={<HomeIcon />} />
 
-        <IconLink route='test' name='Test' icon={<HomeIcon />} />
+        <IconLink route='/test' name='Test' icon={<HomeIcon />} />
 
         <IconLink route='/' name='My File' icon={<FolderIcon />} />
 
